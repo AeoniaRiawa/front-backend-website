@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(/frontend/images/Login.jpg);
+    color: rgb(0, 0, 0); /* Set text color to black for the body */
+}
+
+.container {
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.781);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Ensure contents are centered */
+}
+
+.logo img {
+    max-width: 80%; /* Limit the size of the logo */
+    margin-bottom: 20px; /* Add spacing below the logo */
+}
+
+h2 {
+    text-align: center;
+    color: black; /* Set text color to black for h2 */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    color: black; /* Set label text color to black */
+}
+
+input {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    color: black; /* Set input text color to black */
+    background-color: transparent; /* Keep input background transparent */
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white; /* Keep button text color white */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.hidden {
+    display: none;
+}
+
+p {
+    text-align: center;
+    font-size: 20px;
+    color: black; /* Set paragraph text color to black */
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

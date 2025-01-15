@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <!-- Logo at the top -->
+            <div class="logo">
+                <img src="/frontend/images/logo.png" alt="Logo">
+            </div>
+
+            <!-- Login Form -->
+            <div id="login-form">
+                <h2>Login</h2>
+                <form action="#" method="POST">
+                    <label for="login-email">Email</label>
+                    <input type="text" id="login-email" name="email" required>
+
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" required>
+
+                    <div id="login-error" class="error hidden"></div>
+
+                    <button id="login-btn" type="button">Login</button>
+                    <p>Don't have an account? <a href="#" id="show-signup">Signup</a></p>
+                </form>
+            </div>
+
+            <!-- Signup Form -->
+            <div id="signup-form" class="hidden">
+                <h2>Signup</h2>
+                <form action="#" method="POST">
+                    <label for="signup-name">Username</label>
+                    <input type="text" id="signup-name" name="username" required>
+
+                    <label for="signup-email">Email</label>
+                    <input type="text" id="signup-email" name="email" required>
+
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" name="password" required>
+
+                    <div id="signup-error" class="error hidden"></div>
+
+                    <button id="signup-btn" type="button">Signup</button>
+                    <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/frontend/scripts/login.js"></script>
+</body>
+</html>

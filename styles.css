@@ -1,0 +1,625 @@
+ /*  ======== Google Font Import  ========*/
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500&display=swap');
+ @import url("https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&display=swap");
+ 
+ /*Variables CSS*/
+ :root {
+     --header-height:3.5rem;
+     /* ======== C O L O R S  ======== */
+     --white-color: hsl(170, 12%, 98%);
+     --gray-color: hsl(170, 4%, 60%);
+     --black-color: hsl(170, 12%, 8%);
+ 
+     /*  ======== Font and Typography  ======== */
+     --body-font: "Bona Nova", serif;
+     --h1-font-size: 1.5rem;
+     --normal-font-size: .938rem;
+ 
+     /*  ======== Font Weight  ======== */
+     --font-regular: 400;
+     --font-medium: 500;
+ 
+     /*  ======== Z Index  ======== */
+     --z-tooltip: 10;
+     --z-fixed: 100;
+ }
+ 
+ #logo {
+    height: 70px;
+
+
+ }
+ 
+ html {
+     scroll-behavior: smooth;
+     scroll-padding-top: 100px;
+ }
+ 
+ body {
+     font-family: var(--body-font);
+     font-size: var(--normal-font-size);
+     background-color:black; 
+     width: 100%;
+     margin: 0;
+     padding: 0;
+     color: var(--gray-color);
+     flex-wrap: wrap; /* Allow wrapping of cards */
+ }
+ 
+ ul {
+     list-style: none;
+ }
+ 
+ a {
+     text-decoration: none;
+ }
+ 
+ img {
+   display: block;
+   max-width: 100%;
+   height: auto;
+ }
+ 
+ /*  ======== REUSABLE CSS CLASSES  ======== */
+ 
+ .container {
+     max-width: 1120px;
+     margin-inline: 1.5rem;
+ }
+ 
+ 
+ /*  ======== HEADER & NAV  ======== */
+ 
+ .header {
+     position: fixed;
+     width: 100%;
+     top: 0;
+     left: 0;
+     background-color: hsl(0, 0%, 100%);
+     z-index: var(--z-fixed);
+     font-family: 'Montserrat Alternates', sans-serif;;
+ }
+ 
+ .nav {
+     position: relative;
+     height: var(--header-height);
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+ 
+ .nav__logo {
+     color: var(--white-color);
+     font-weight: var(--font-medium);
+ }
+ 
+ .nav__close,
+ .nav__toggle{
+     display: flex;
+     color: var(--white-color);
+     font-size: 1.5rem;
+     cursor: pointer;
+ }
+ 
+ /* Navigation for mobile devices*/
+ 
+ 
+ 
+ .nav__list{
+     display: flex;
+ }
+ 
+ .nav__list{
+     flex-direction: column;
+     row-gap: 5rem;
+ }
+ 
+ .nav__link{
+     position: relative;
+     color: var(--black-color);
+     font-size: 5rem;
+     font-weight: var(--font-medium);
+     display: inline-flex;
+     align-items: center;
+     transform: opacity .4s;
+     padding: 10px;
+ }
+ 
+ .nav__link i{
+     font-size: 5rem;
+     position: absolute;
+     opacity: 0;
+     visibility: hidden;
+     transition: opacity .4s, visibility .4s;
+ }
+ .nav__link span{
+    font-size: 21px;
+ }
+
+ 
+ .nav__link span::after{
+     content: '';
+     position: absolute;
+     left: 0;
+     bottom: -6px;
+     width: 0;
+     height: 2px;
+     background-color: black;
+     transition: width .4s ease-out;
+ }
+ 
+ /* Animation link on hover */
+ 
+ .nav__link:hover span{
+     margin-left: 2.5rem;
+ }
+ 
+ .nav__link:hover i{
+     opacity: 1;
+     visibility: visible;
+ }
+ 
+ .nav__link:hover span::after {
+     width: 100%;
+ }
+ 
+ /* Sibling fade animation */
+ 
+ .nav__list:has(.nav__link:hover) .nav__link:not(:hover){
+     opacity: .4;
+ }
+ 
+ .nav__close {
+     position: absolute;
+     top: 1rem;
+     right: 1.5rem;
+ }
+ 
+ 
+ /* Show Menu */
+ 
+ .show-menu{
+     left: 0;
+ }
+ 
+ /* Animation link when displaying menu */
+ 
+ .show-menu .nav__item{
+     visibility: visible;
+     transform: translateX(0);
+ }
+ 
+
+ 
+ /* Do not Touch This. The code will tweak */
+ 
+ @media screen and (min-width: 1120px){
+     .container{
+         margin-inline: auto;
+     }
+ 
+     .nav{
+         height: calc(var(--header-height) + 2rem);
+     }
+     .nav__toggle,
+     .nav__close{
+         display: none;
+     }
+     .nav__link{
+         font-size: var(--normal-font-size);
+     }
+     .nav__link i{
+         font-size: 1.5rem;
+     }
+     .nav__list{
+         flex-direction: row;
+         column-gap: 3.5rem;
+     }
+     .nav__menu{
+         display: flex;
+         align-items: center;
+         column-gap: 3.5rem;
+     }
+     .container2 {
+       height: 100vh;
+       display: grid;
+       align-items: center;
+     }
+     .card__img {
+       width: 220px;
+     }
+ }
+ 
+ /* Footer */
+ footer {
+     width: 10vw;
+     position: fixed;
+     bottom: 0;
+     left: 0;
+     background-color: var(--white-color);
+     padding: 10px 0;
+     box-sizing: border-box;
+     margin-left: calc(-50vw + 50%);
+     text-align: center;
+     z-index: 100;
+ }
+ 
+ footer small, footer a {
+     text-shadow: 0 0 12px var(--gray-color);
+     color: var(--black-color);
+     text-decoration: none;
+ }
+ 
+ footer a:hover {
+     color: var(--black-color);
+     font-size: 18px;
+ }
+
+ /* For Parallax text and image effect*/
+
+/* For plana */
+#Arctilelmao{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    font-family:'Times New Roman', Times, serif;
+    overflow-x: hidden;
+    background-image: url(/frontend/images/plana.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 10px;
+    
+}
+
+#portrait{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    max-width: 50vw;
+    max-height:50vw;
+    z-index: 1;
+    transition: transform 0.2s ease-out;
+}
+/* For arona */
+section{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    font-family:'Times New Roman', Times, serif;
+    overflow-x: hidden;
+    background-image: url(/frontend/images/schale.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 10px;
+    
+}
+
+
+.text-container{
+    position: relative;
+}
+
+
+.title {
+    font-size: 8vw;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.2;
+    white-space: nowrap;
+    color: #db84f5e1;
+    z-index: 0;
+
+}
+
+
+.title-outline {
+    font-size: 8vw;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.2;
+    white-space: nowrap;
+    color: transparent;
+    z-index: 2;
+    -webkit-text-stroke: 0.1vw #000000c0;
+}
+
+
+.portrait{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    max-width: 50vw;
+    max-height:50vw;
+    z-index: 1;
+    transition: transform 0.2s ease-out;
+}
+/* For Schools Logo*/
+
+#skull{
+    height: 270px;
+}
+
+#articleAB{
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    background: linear-gradient(to right, black, rgba(65, 205, 240, 0.384));
+    padding-bottom: 40px;
+}
+#schoolAB{
+        background-color: #000000;
+        justify-content: center;
+        display: flex;
+        background: linear-gradient(to right, black, rgba(65, 205, 240, 0.384));
+    }
+
+
+#articleM{
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    background: linear-gradient(to right, black, rgba(86, 126, 236, 0.384));
+    padding-bottom: 40px;
+}
+#schoolM{
+        background-color: #000000;
+        justify-content: center;
+        display: flex;
+        background: linear-gradient(to right, black, rgba(86, 126, 236, 0.384));
+    }
+#articleA{
+        display: flex;
+        grid-template-columns: 1fr 1fr;
+        background: linear-gradient(to right, black, rgba(164, 200, 230, 0.384));
+        padding-bottom: 40px;
+    }
+#schoolA{
+            background-color: #000000;
+            justify-content: center;
+            display: flex;
+            background: linear-gradient(to right, black, rgba(164, 200, 230, 0.384));
+        }
+#articleH{
+            display: flex;
+            grid-template-columns: 1fr 1fr;
+            background: linear-gradient(to right, black, rgba(193, 100, 230, 0.384));
+        }
+#schoolH{
+                background-color: #000000;
+                justify-content: center;
+                display: flex;
+                background: linear-gradient(to right, black, rgba(193, 100, 230, 0.384));
+                padding-bottom: 40px;
+            }
+#school-textAB{
+    display: flex;
+    align-content: stretch;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 70%;
+    margin-left: 100px;
+    color: #FFFFFF;
+    background-image: url(/frontend/images/abydosbg.jpg);
+
+    background-size: contain;
+    background-position: cover;
+    background-attachment: fixed; 
+
+    background-color: rgba(0, 0, 0, 0.384);
+    background-blend-mode: overlay; 
+}
+#school-textM{
+    display: flex;
+    align-content: stretch;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 70%;
+    margin-left: 100px;
+    color: #FFFFFF;
+    background-image: url(/frontend/images/millenium.png);
+
+    background-size: contain;
+    background-position: cover;
+    background-attachment: fixed; 
+
+    background-color: rgba(0, 0, 0, 0.384);
+    background-blend-mode: overlay; 
+}
+#school-textA{
+    display: flex;
+    align-content: stretch;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 70%;
+    margin-left: 100px;
+    color: #FFFFFF;
+    background-image: url(/frontend/images/BG_AriusCampus_Night.jpg);
+    background-size: contain;
+    background-position: cover;
+    background-attachment: fixed; 
+
+    background-color: rgba(0, 0, 0, 0.384);
+    background-blend-mode: overlay; 
+}
+#school-textH{
+    display: flex;
+    align-content: stretch;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 69%;
+    margin-left: 100px;
+    color: #FFFFFF;
+    background-image: url(/frontend/images/Hyakkio.png);
+    background-size: contain;
+    background-position: cover;
+    background-attachment: fixed; 
+
+    background-color: rgba(0, 0, 0, 0.384);
+    background-blend-mode: overlay; 
+
+    
+}
+
+
+.title_school{
+    display: flex;
+    font-size: 40px;
+    margin-bottom: -10px;
+    
+}
+
+h3{
+    align-items: center;
+    margin: 20px;
+}
+/*For Student Cards*/
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between cards */
+    
+    
+}
+
+.card {
+    width: 150px; /* Adjusted width for portrait */
+    height: 250px; /* Adjusted height for portrait */
+    background-color: #fff;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    width: 280px; /* Adjusted width on hover */
+    height: 500px; /* Adjusted height on hover */
+}
+
+.card__content {
+    position: absolute;
+     bottom: 0; /* Position content at the bottom */
+     left: 0;
+     right: 0; /* Ensure it stretches across the card */
+     background-color: rgba(0, 0, 0, 0.334); /* Gray transparent background */
+     text-align: center;
+     color: #fff; /* Change text color to white for better contrast */
+     padding: 10px; /* Add some padding */  
+     opacity: 0; /* Initially hidden */
+     transition: opacity 0.3s ease; /* Smooth transition for opacity */
+     z-index: 1; /* Ensure content is above the video */
+}
+
+.card__title {
+    font-size: 1.2rem; /* Adjusted font size */
+    margin-bottom: 10px;
+}
+
+.card__thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Ensure the image is displayed */
+    
+}
+
+.card__video {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card:hover .card__video {
+    display: block;
+}
+
+.card:hover .card__thumbnail {
+    display: none; /* Hide thumbnail on hover */
+}
+
+.card:hover .card__content {
+    opacity: 1; /* Show content on hover */
+}
+
+/* This part is for the PV video in the middle*/
+
+
+/* Centering the video */
+#video {
+    position: relative; /* Fixed positioning for always being on screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* Centers the video horizontally */
+    align-items: center; /* Centers the video vertically */
+    background-image: url(/frontend/images/paranona.png);
+    padding: 50px;
+    background-position: cover;
+    background-attachment: fixed; 
+}
+
+#videothing {
+    width: 80%; /* Adjust video container width */
+    max-width: 1200px; /* Maximum width to prevent it from getting too large */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#videoElement {
+    width: 100%; /* Make video take up the full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: add rounded corners */
+}
